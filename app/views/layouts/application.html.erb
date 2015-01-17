@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= form_tag(articles_path, :method => 'get') do %>
+
+		<%= text_field_tag(:search,params[:search]) %>
+
+		
+		<button type="submit">search</button> 
+	<% end %>
 
 <%= yield %>
 
