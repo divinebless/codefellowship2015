@@ -8,43 +8,47 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="Codefellowship"></a>
+         
+          
+           
+     
             </div>
-            <div class="collapse navbar-collapse">
+          
+    <div class="collapse navbar-collapse">
+      <%= link_to 'Codefellowship', root_path, :class =>"navbar-brand" %>
+       <ul class="nav navbar-nav navbar-left">
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                         <%= form_tag(articles_path, :method => 'get') do %>
-                         <%= text_field_tag(:search,params[:search]) %>
-                        <button type="submit">search</button> 
-                        <% end %>
-
-                    </li>
-
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="icon-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="career.html">Career</a></li>
-                            <li><a href="blog-item.html">Blog Single</a></li>
-                            <li class="active"><a href="faq.html">FAQ</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="registration.html">Registration</a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacy.html">Privacy Policy</a></li>
-                            <li><a href="terms.html">Terms of Use</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="blog.html">Blog</a></li> 
-                    <li><a href="contact-us.html">Contact</a></li>
-                </ul>
-            </div>
+                <li class="navbar-form navbar-left"role="search" >
+                    <%= form_tag(articles_path, :method => 'get') do %> 
+                     <p class="form-group" >
+                        <%= text_field_tag(:search,params[:search])%> 
+                        <button type="submit">search</button>
+                      </p> 
+                 <% end %>
+                </li>
+               
+             </ul>
+       
+        <ul class="nav navbar-nav navbar-right">
+                
+                <li class="<%= 'active' if current_page?(root_path)%>">
+                <%=link_to 'Home',root_path %></li>
+                <li class="<%= 'active' if current_page?(pages_about_path)%>">
+                <%= link_to 'About Us', pages_about_path %></li>
+                <li class="<%= 'active' if current_page?(pages_services_path)%>">
+                <%= link_to 'Services',pages_services_path%></li>
+                <li class="<%= 'active' if current_page?(pages_contact_path)%>">
+                <%= link_to 'Contact', pages_contact_path%></li>
+                 
+        </ul>
+        <ul class="nav navbar-nav  navbar-right">
+            <li class="<%= 'active' if current_page?(new_user_session_path)%>"><%= link_to 'Sign in', new_user_session_path %></li>
+            <li class="<%= 'active' if current_page?(new_user_registration_path)%>"><%= link_to 'Sign Up', new_user_registration_path %>
+            </li>
+                
+        </ul>
         </div>
-    </header><!--/header-->
+     </div>
+</header><!--/header-->
 
   
