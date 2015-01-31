@@ -3,6 +3,11 @@
 
     <section id="faqs" class="container">
         <ul class="faq unstyled">
+         <% if user_signed_in? %>
+         <h5><%= link_to 'Create New Article', new_article_path %></h5>
+    
+         <% end %>
+         
            <% @articles.each do |article| %>
               <li>
                   <span class="number"><%= article.created_at %></span>
@@ -12,7 +17,9 @@
                         <%= truncate(article.description,:length =>500) %>
                         <%= link_to 'read more', article %>
                       </p>
-                      <%= link_to 'Create New Article', new_article_path %>
+                      <%if user_signed_in?%>
+                     <%= link_to 'Comment', new_comment_path %>
+                     <% end %>
                   </div>
               </li>
             <% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+
   devise_for :users
   resources :articles
 
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
     get 'pages/about'
     get 'pages/services'
     get 'pages/contact'
+    get 'comments/new'
+    get 'articles/new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

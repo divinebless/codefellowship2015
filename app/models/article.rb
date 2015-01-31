@@ -3,4 +3,6 @@ class Article < ActiveRecord::Base
 		where("title like?","%#{query}%")
 		
 	end
+belongs_to :user
+has_many :comment
 end
