@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214113605) do
+ActiveRecord::Schema.define(version: 20150214142109) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150214113605) do
     t.string   "avator_content_type"
     t.integer  "avator_file_size"
     t.datetime "avator_updated_at"
+    t.string   "code_snippet_text"
   end
 
   create_table "comments", force: :cascade do |t|

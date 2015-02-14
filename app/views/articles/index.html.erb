@@ -2,33 +2,39 @@
 
 
     <section id="faqs" class="container">
-        <ul class="faq unstyled">
+        
          <% if user_signed_in? %>
-         <h5><%= link_to 'Create New Article', new_article_path %></h5>
+          <h5><%= link_to 'Create New Article', new_article_path %></h5>
     
          <% end %>
          
            <% @articles.each do |article| %>
-              <li>
-                  <span class="number"><%= article.created_at %></span>
-                  <div>
-                      <h4><%= article.title %></h4>
-                      <p>
+
+             
+                
+                  <div class="row">
+                    <div class="col-md-4">
+                      <%= image_tag article.avator.url("medium")%>
+                    </div>
+                    <div class="col-md-8">
+                     <h1><%= article.title %></h1>
+                      <p class="well">
                         <%= truncate(article.description,:length =>500) %>
-                        <%= link_to 'read more', article %>
+                        <%= link_to 'read more', article, :class => "btn btn-xs btn-info" %>
                       </p>
                       <p>
                        <h6> <%= article.category%></h6>
                       </p>
-                      <p>
-                      <%= image_tag article.avator.url("thumb")%>
-                      </p>
+                      
+                    </div>
+                     </div>
+                      <p><%= paginate @articles %></p>
                       <%if user_signed_in?%>
                      <%= link_to 'Comment', new_comment_path %>
                      <% end %>
                   </div>
-              </li>
+           
             <% end %>
             
-</ul>
+
 </section>

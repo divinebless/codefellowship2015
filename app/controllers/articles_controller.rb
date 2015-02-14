@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
     if params[:search]
     @articles = Article.search(params[:search]).order("created_at DESC")
   else
-    @articles =Article.order("created_at DESC")
+    @articles =Article.order("title").page(params[:page]).per(1)
+    #this is where we pagnate. so aech page has up to six articles
     respond_with(@articles)
   end
   
@@ -22,6 +23,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     respond_with(@article)
+
   end
 
   def edit
@@ -46,8 +48,10 @@ class ArticlesController < ApplicationController
   private
     def set_article
       @article = Article.find(params[:id])
+    
     end
     def article_params
-      params.require(:article).permit(:title, :description,:category,:avator)
+      params.require(:article).permit(:title, :description,:category,:avator, :code_snippet_text)
+
     end
 end
