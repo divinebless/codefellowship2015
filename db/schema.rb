@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122093325) do
+ActiveRecord::Schema.define(version: 20150214113605) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "category"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avator_file_name"
+    t.string   "avator_content_type"
+    t.integer  "avator_file_size"
+    t.datetime "avator_updated_at"
   end
 
   create_table "comments", force: :cascade do |t|

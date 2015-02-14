@@ -17,6 +17,12 @@
                         <%= truncate(article.description,:length =>500) %>
                         <%= link_to 'read more', article %>
                       </p>
+                      <p>
+                       <h6> <%= article.category%></h6>
+                      </p>
+                      <p>
+                      <%= image_tag article.avator.url("thumb")%>
+                      </p>
                       <%if user_signed_in?%>
                      <%= link_to 'Comment', new_comment_path %>
                      <% end %>
