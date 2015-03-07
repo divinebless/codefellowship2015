@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     if params[:search]
     @articles = Article.search(params[:search]).order("created_at DESC")
   else
-    @articles =Article.order("title").page(params[:page]).per(1)
+    @articles =Article.order("title").page(params[:page]).per(3)
     #this is where we pagnate. so aech page has up to six articles
     respond_with(@articles)
   end
